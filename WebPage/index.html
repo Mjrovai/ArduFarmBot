@@ -1,0 +1,75 @@
+<html>
+ 
+  <head>
+    <link rel="icon" href="images/RoboTomatoNoName.png">
+    <meta charset="UTF-8">
+    <title>Arduino FarmBot Station</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+
+   <script src="https://www.gstatic.com/charts/loader.js"></script>
+   <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js'></script> 
+   <script src='https://www.google.com/jsapi'></script>
+   <script src='js/jsFunctionsArduFarmBot.js'></script>
+
+   <script>
+      google.charts.load('current', {'packages':['gauge']});
+      google.charts.setOnLoadCallback(drawChart); 
+  </script>
+
+  <script>
+      getLocalWeatherData("Lo Barnechea");
+  </script>
+ 
+  <body>
+    <header>  
+      <h1>ArduFarmBot Control Station</h1>
+      <h3>V.01 - Tomato Plantation</h3>
+    </header>
+    
+    <section id="localWeather" class="whole">
+      <h2>Local Weather Conditions at: <input type="text" id="cityNameInput" name="fname" value="Lo Barnechea">
+      <button onclick="getCityData()">Show Data</button>
+      <a href="https://www.yahoo.com/?ilc=401" target="_blank"> <img src="https://poweredby.yahoo.com/white.png" width="134" height="29"/> </a>
+      </h2>
+      
+      <p id="local_weather1"></p>
+      <p id="local_weather2"></p>
+      <p id="local_weather3"></p>
+    </section>
+
+    <section class="whole">
+      <h2>Analog Sensors</h2>
+      <div id="chart_div"></div>
+    </section>
+    
+    <section class="whole">
+      <h2>Digital Sensors</h2>
+      <span class="hide">spare</span>
+      <span id = "act1">==&GT </span>
+      <span id = "echoAct1"> PUMP</span>
+      <span class="hide">spare</span>
+      <span id = "act2">==&GT </span>
+      <span id = "echoAct2">LIGHT</span>
+     </section>
+
+    <section class="whole">
+      <h2>Actuators</h2>
+      <span class="hide">Spare</span>
+      <button id = "act1On" class="button" onclick="changeField7(1)">  PUMP ON </button>
+      <button id = "act1Off" class="button" onclick="changeField7(0)"> PUMP OFF</button>
+      <span class="hide">Spare</span>
+      <button  id = "act2On" class="button" onclick="changeField8(1)">LIGHT ON </button>
+      <button  id = "act2Off" class="button" onclick="changeField8(0)">LIGHT OFF</button>
+    </section>
+
+    <footer>
+      <img src="images/MJRoBot and ArduFarmBot.png" alt = "tomato icon">
+      Project developed by Maurício Pinto & Marcelo Rovai. To learn more about IoT, please visit:   
+    <a href="http://mjrobot.org/">MJRoBot.org</a>
+    
+    </footer>
+  </body>
+
+
+</html>
